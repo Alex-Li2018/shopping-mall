@@ -18,7 +18,7 @@ module.exports = smart(base,{
         contentBase: './client', //找到对应的文件夹开启服务
         compress: true, //启动压缩
         proxy: { //请求的接口是 '/api/user'
-            '/api': 'http://localhost:3000/' //配置一个代理 访问api都代理到3000端口
+            '/api': 'http://localhost:5000/' //配置一个代理 访问api都代理到3000端口
         }
 
         // proxy: {

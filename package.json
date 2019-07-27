@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
+    "build": "cross-env NODE_ENV=development webpack --config webpack.prod.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -30,6 +31,8 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "axios": "^0.19.0",
+    "pubsub-js": "^1.7.0",
     "vue": "^2.6.10"
   }
 }

@@ -64,5 +64,10 @@
         "jquery": true,
         "node": true,
         "commonjs": true
+    },
+    "globals":{
+        "document": true,
+        "localStorage": true,
+        "window": true
     }
 }
