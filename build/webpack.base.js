@@ -9,21 +9,32 @@ module.exports = {
         filename: 'app.js',
         path: path.resolve(__dirname,'dist')
     },
+    resolve: {
+        extensions: ['.vue', '.js', '.css', '.scss'],
+        // 找包的顺序是从当前的node_modules下开始寻找，找不到会从外层再去寻找，我们可以使用module字段来指定找包的范围
+        modules: [path.join(__dirname, '../node_modules')],
+        alias: {
+            'vue$': 'vue/dist/vue.common.js',
+            '@': path.resolve(__dirname, '../src')
+            // 'assets': path.resolve(__dirname, '../src/assets'),
+            // 'components': path.resolve(__dirname, '../src/components')
+        }
+    },
     module: {
         //loader的执行顺序是从下到上,从右到左
         rules: [
             // js语法规范
-            {
-                test: /\.js$/,
-                use: [
-                   {
-                        loader: 'eslint-loader',
-                        options: {
-                            enforce: 'pre' //前置loader pre 后置loader post 
-                        }
-                   }
-                ] 
-            },
+            // {
+            //     test: /\.js$/,
+            //     use: [
+            //        {
+            //             loader: 'eslint-loader',
+            //             options: {
+            //                 enforce: 'pre' //前置loader pre 后置loader post 
+            //             }
+            //        }
+            //     ] 
+            // },
             //es6的语法处理
             {
                 test: /\.js$/,

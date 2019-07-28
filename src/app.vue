@@ -1,18 +1,16 @@
 <template>
-    <h1>Hello {{ msg }}</h1>
+    <router-view></router-view>
 </template>
 <script>
     export default {
         data(){
             return {
-                msg: 'Vue.js'
+                
             }
         }
     }
 </script>
-<style scoped>
-    h1{
-        font-family: 'Courier New';
-        color: red;
-    }
+<style lang="scss">
+    //引入公共文件
+    @import "./style/common.scss";
 </style>

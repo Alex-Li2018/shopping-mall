@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import PubSub from 'pubsub-js'
-import $Http from './extends-http/http.js'
+import $Http from './config/http.js'
 
 
 let Plugin = {

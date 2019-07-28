@@ -5,7 +5,7 @@ var instance = axios.create({    timeout: 1000 * 12});
 
 //判断环境变量
 if(process.env.NODE_ENV == 'development') {
-    instance.defaults.baseURL = '/api'
+    instance.defaults.baseURL = 'http://elm.cangdu.org'
 }else if(process.env.NODE_ENV == 'production') {
     instance.defaults.baseURL = ''
 }
