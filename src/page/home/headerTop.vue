@@ -28,10 +28,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/mixin';
+@import '@/style/mixin.scss';
 
 #header-top {
-    height: 50px;
+    height: px2rem(50px);
     width: 100%;
     background-color: #3190e8;
     //固定定位在头部
@@ -40,13 +40,13 @@ export default {
     left: 0;
     top: 0;
     .logo {
-        left: 15px;
+        left: px2rem(15px);
         font-weight: 400;
-        font-size: 18px;
-        line-height: 20px;
+        font-size: px2rem(18px);
+        line-height: px2rem(20px);
         color: #fff;
-        width: 60px;
-        height: 20px;
+        width: px2rem(60px);
+        height: px2rem(20px);
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
@@ -54,12 +54,17 @@ export default {
         transform: translateY(-50%);
     }
     .head-login {
-        right: 15px;
-        position: absolute;
+        right: px2rem(15px);
+        line-height:px2rem(50px);
+        display: inline-block;
         @include ct;
         > span {
-            font-size: 16px;
+            float: right;
+            height: px2rem(50px);
+            font-size: px2rem(16px);
             color: #fff;
+            line-height:px2rem(50px);
+            
         }
     }
 }

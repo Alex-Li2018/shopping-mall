@@ -135,38 +135,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/style/mixin.scss';
+
 .city {
     position: relative;
-    top: 50px;
+    top: px2rem(50px);
 }
 .city-nav {
     // position: relative;
     width: 100%;
+    font-size: px2rem(12px);
     .city-tip {
-        border-top: 1px solid #e4e4e4;
-        border-bottom: 1px solid #e4e4e4;
-        height: 40px;
-        line-height: 40px;
-        padding: 0 10px;
+        border-top: px2rem(1px) solid #e4e4e4;
+        border-bottom: px2rem(1px) solid #e4e4e4;
+        height: px2rem(40px);
+        line-height: px2rem(40px);
+        padding: 0 px2rem(10px);
     }
     .current-city {
-        font-size: 15px;
+        font-size: px2rem(15px);
         color: #666;
     }
     .error-city {
-        font-size: 12px;
+        font-size: px2rem(12px);
         color: #9f9f9f;
-        font-weight: 900px;
+        font-weight: px2rem(900px);
     }
     .city-guess {
         width: 100%;
-        border-bottom: 1px solid #e4e4e4;
-        padding: 0 10px;
+        border-bottom: px2rem(1px) solid #e4e4e4;
+        padding: 0 px2rem(10px);
         display: inline-block;
         > span {
             width: 50%;
-            height: 40px;
-            line-height: 40px;
+            height: px2rem(40px);
+            line-height: px2rem(40px);
+            font-size: px2rem(16px);
         }
         .position-city {
             color: #3190e8;
@@ -175,18 +179,25 @@ export default {
 }
 .hot-city {
     width: 100%;
+    // .hot-city-detail {
+    //     font-size: px2rem(14px);
+    // }
+}
+.all-city {
+   border-bottom: px2rem(1px) solid #e4e4e4;
+   margin-bottom: px2rem(2px); 
 }
 .all-city-title,
 .hot-city-title {
-    padding-left: 10px;
-    height: 40px;
-    line-height: 40px;
+    padding-left: px2rem(10px);
+    height: px2rem(40px);
+    line-height: px2rem(40px);
     color: #666;
     font-weight: 400;
-    font-size: 14px;
-    border-top: 2px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
-    margin-top: 10px;
+    font-size: px2rem(14px);
+    border-top: px2rem(2px) solid #e4e4e4;
+    border-bottom: px2rem(1px) solid #e4e4e4;
+    margin-top: px2rem(10px);
 }
 .all-city-list,
 .hot-city-list {
@@ -194,12 +205,13 @@ export default {
     flex-wrap: wrap;
     > li {
         width: 25%;
-        height: 45px;
-        line-height: 45px;
+        height: px2rem(45px);
+        line-height: px2rem(45px);
         text-align: center;
-        border-bottom: 1px solid #e4e4e4;
-        border-right: 1px solid #e4e4e4;
+        border-bottom: px2rem(1px) solid #e4e4e4;
+        border-right: px2rem(1px) solid #e4e4e4;
         color: #3190e8;
+        font-size: px2rem(14px);
         &:nth-of-type(4n) {
             border-right: none; 
         }

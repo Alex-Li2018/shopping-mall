@@ -66,5 +66,10 @@ $fc:#fff;
 @mixin fj($type: space-between){
 	display: flex;
 	justify-content: $type;
+}
 
+//px2rem的转换混入 375px / 100px = 3.75rem; 100px = 1rem; 12px / 100px = 0.12rem 
+@function px2rem($px) {
+	$rem: 100px;
+	@return ($px / $rem) + rem;
 }

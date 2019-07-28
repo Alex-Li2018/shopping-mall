@@ -7,6 +7,8 @@ import 'mint-ui/lib/style.css'
 import router from "./router/router.js"
 //引入全局操作的工具
 import './global.js';
+//rem适配
+import "./config/rem.js"
 
 Vue.use(MintUI)
 
