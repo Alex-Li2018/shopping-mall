@@ -20,7 +20,7 @@
                 <h4 class="hot-city-title">热门城市</h4>
                 <ul class="hot-city-list">
                     <template v-for="item in hotCity">
-                        <li class="hot-city-detail">{{ item.name }}</li>
+                        <router-link  tag="li" class="hot-city-detail" :to="'/city/' + item.id" :key="item.id">{{ item.name }}</router-link>
                     </template>
                 </ul>
             </section>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import headerTop from "./headerTop.vue"
+import headerTop from "../component/headerTop.vue"
 import { cityGuess } from "@/api/api"
 
 export default {

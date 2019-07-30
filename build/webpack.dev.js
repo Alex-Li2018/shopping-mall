@@ -1,6 +1,6 @@
-
 let { smart } = require('webpack-merge')
 let base = require('./webpack.base.js')
+let Webpack = require("webpack")
 
 module.exports = smart(base,{
     mode: 'development',
@@ -18,7 +18,9 @@ module.exports = smart(base,{
         contentBase: './client', //找到对应的文件夹开启服务
         compress: true, //启动压缩
         proxy: { 
-            '/': 'http://elm.cangdu.org' //配置一个代理 访问api都代理到3000端口
+            '/v1': {
+                target: 'http://elm.cangdu.org', //配置一个代理 访问api都代理到3000端口
+            }
         }
 
         // proxy: {
@@ -37,6 +39,11 @@ module.exports = smart(base,{
     // 4) 不会产生文件,集成在打包后的文件中 不会产生列
     devtool: 'cheap-module-eval-source-map',
     plugins: [
-
+        //判断生产还是开发环境
+        new Webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify("development")
+            }
+        }), 
     ]
 })

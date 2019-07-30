@@ -7,7 +7,7 @@ var instance = axios.create({    timeout: 1000 * 12});
 if(process.env.NODE_ENV == 'development') {
     instance.defaults.baseURL = 'http://elm.cangdu.org'
 }else if(process.env.NODE_ENV == 'production') {
-    instance.defaults.baseURL = ''
+    instance.defaults.baseURL = 'http://elm.cangdu.org'
 }
 
 // post请求头

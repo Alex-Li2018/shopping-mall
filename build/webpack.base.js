@@ -81,6 +81,6 @@ module.exports = {
         //每次都删除 dist目录 生成新的dist 多个文件传一个数组
         new CleanWebpackPlugin(),
         //配合vue-loader
-        new VueLoaderPlugin()  
+        new VueLoaderPlugin() 
     ]   
 }

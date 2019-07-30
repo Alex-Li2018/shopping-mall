@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js --open",
     "build": "cross-env NODE_ENV=development webpack --config build/webpack.prod.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js"
   },
