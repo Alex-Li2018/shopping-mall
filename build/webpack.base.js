@@ -6,8 +6,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin'); //vue-loader15.*之后
 module.exports = {
     entry: './src/main.js',
     output: {
-        filename: 'app.js',
-        path: path.resolve(__dirname,'dist')
+        filename: 'app.[hash:4].js',
+        path: path.resolve(__dirname,'../dist'),
+        chunkFilename: 'chunk.[name].[hash:4].js'
     },
     resolve: {
         extensions: ['.vue', '.js', '.css', '.scss'],
@@ -15,9 +16,8 @@ module.exports = {
         modules: [path.join(__dirname, '../node_modules')],
         alias: {
             'vue$': 'vue/dist/vue.common.js',
-            '@': path.resolve(__dirname, '../src')
-            // 'assets': path.resolve(__dirname, '../src/assets'),
-            // 'components': path.resolve(__dirname, '../src/components')
+            '@': path.resolve(__dirname, '../src'),
+            "@component": path.resolve(__dirname, "../src/page/component")
         }
     },
     module: {
@@ -42,18 +42,20 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            //预设 用babel把es6转为es5
-                            presets: ['@babel/preset-env'],
-                            plugins: [
-                                ["@babel/plugin-proposal-class-properties", { "loose": true }], //支持class语法
-                                "@babel/plugin-transform-runtime", //支持promise的语法 Generator语法
-                                "@babel/plugin-syntax-dynamic-import" //支持import()函数
-                            ]
+                            // //预设 用babel把es6转为es5
+                            // presets: ['@babel/preset-env'],
+                            // plugins: [
+                            //     ["@babel/plugin-proposal-class-properties", { "loose": true }], //支持class语法
+                            //     "@babel/plugin-transform-runtime", //支持promise的语法 Generator语法
+                            //     "@babel/plugin-syntax-dynamic-import" //支持import()函数
+                            // ],
+                            // include: [path.resolve('../src'), path.resolve('../node_modules/mint-ui/src'), path.resolve('../node_modules/mint-ui/packages')]
                         }
                     }
                 ],
-                include: path.resolve(__dirname,'src'), //包括src下面的js
-                exclude: /node_modules/ //排除那些js 
+                include: [path.resolve('../src'), path.resolve('../node_modules/mint-ui/src'), path.resolve('../node_modules/mint-ui/packages')]
+                // include: path.resolve(__dirname,'src'), //包括src下面的js
+                // exclude: /node_modules/ //排除那些js 
             },
             //解析css文件,因为webpack只能打包js,所以需要loader来实现打包css
             //style-loader,将打包的css以style标签的形势插入页面

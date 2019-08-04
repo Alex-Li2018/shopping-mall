@@ -48,6 +48,7 @@
 import headerTop from "../component/headerTop.vue"
 import { cityGuess } from "@/api/api"
 
+
 export default {
     name: "home",
     components: {
@@ -78,7 +79,7 @@ export default {
             return cityGuess(params).then(res => {
                 // this.positionCity = res.name
                 // this.guessCityid = res.id
-                return res
+                return res;
             })
         },
 
@@ -90,7 +91,7 @@ export default {
 
             return cityGuess(params).then(res => {
                 // this.hotCity = res
-                return res
+                return res;
             })
         },
 
@@ -108,7 +109,7 @@ export default {
                 //     }
                 // }
                 // this.allCity = sortobj
-                return res
+                return res;
             })
         },
 
@@ -116,10 +117,10 @@ export default {
         qurryAllData() {
             Promise.all([this.cityGuessData(),this.hotCityData(),this.allCityData()]).then(res => {
                 //数组的第一个元素
-                this.positionCity = res[0].name
-                this.guessCityid = res[0].id
+                this.positionCity = res[0].name;
+                this.guessCityid = res[0].id;
                 //数组的第二个元素
-                this.hotCity = res[1]
+                this.hotCity = res[1];
                 //数组第三个元素
                 let sortobj = {};              
                 for (let i = 65; i <= 90; i++) {
@@ -127,7 +128,7 @@ export default {
                         sortobj[String.fromCharCode(i)] = res[2][String.fromCharCode(i)];
                     }
                 }
-                this.allCity = sortobj
+                this.allCity = sortobj;
             })
         }
     }    

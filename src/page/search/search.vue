@@ -21,7 +21,7 @@
         <!-- 搜索历史列表 -->
         <ul class="search-history-list" v-if="searchHistoryFlag">
             <template v-for="item in searchHistoryList">
-                <li :key="item.id" class="list">
+                <li :key="item.id" class="list" @click="goMsite(item)">
                     <h4 class="search-name ellipsis">{{ item.name }}</h4>
                     <p class="search-addr ellipsis">{{ item.address }}</p>
                 </li>
@@ -103,8 +103,9 @@ export default {
         detailData(item) {
             //操作localstorage
             lc.addlocalStorage(item)
+            let { geohash } = item
             //路由跳转
-            this.router.push({ name: 'msite', query: { geohash: '123' }}) // -> /user/123
+            this.$router.push({ name: 'Msite', query: { geohash }}) // -> /user/123
         },
         //获取搜索的历史列表
         querysearchHistoryList() {
@@ -114,6 +115,11 @@ export default {
         removeHistory() {
             lc.clearHistory('searchHistory')
             this.querysearchHistoryList()
+        },
+        //路由到商品首页
+        goMsite({ geohash }) {
+            //路由跳转
+            this.$router.push({ name: 'Msite', query: { geohash }}) // -> /user/123
         }
     }
 }
