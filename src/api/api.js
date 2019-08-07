@@ -1,5 +1,7 @@
-//api发送请求
+//预防xss攻击的工具函数
+import { xssDefenseUncode, xssDefenseEncode } from '../xssDefense/xssDefense.js'
 
+//api发送请求
 
 /**
  * 获取首页默认地址
@@ -32,11 +34,13 @@ export function currentCity(id) {
 }
 
 /**
- * 获取搜索的数据
+ * 获取搜索的数据(为了防止XSS攻击,处理输入的字符串)
  */
-
 export function searchtarget(params) {
     let url = `v1/pois`;
+    //处理keyword关键字,防止xss攻击
+    params.keyword = xssDefenseEncode(params.keyword)
+
     let data = Object.assign({},params);
     return $Http.get(url,data)
         .then(res => {

@@ -32,7 +32,7 @@
                         <section class="shop-text">
                             <header class="title">
                                 <span class="banner">{{ "品牌" }}</span>
-                                <h5 class="name">{{ item.name }}</h5>
+                                <h5 class="name ellipsis">{{ item.name }}</h5>
                                 <span class="tip">{{ "保准票" }}</span>
                             </header>
                             <div class="sale">
@@ -177,10 +177,12 @@ export default {
 }
 .shop-container {
     // margin-top: px2rem(20px);
+    width: 100%;
     .shop-item {
         height: px2rem(120px);
         padding: px2rem(20px) 0;
         font-size: px2rem(16px);
+        width: 100%;
         display: flex;
         border-bottom: px2rem(1px) solid #e4e4e4;
     }
@@ -193,12 +195,12 @@ export default {
         // display: flex;
         // flex-direction: column;
         // justify-content: space-between;
+        // width: 100%;
         flex: 1;
         .title {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            flex: 1;
+            width: 100%;
             height: 25px;
             line-height: 25px;
             .banner {

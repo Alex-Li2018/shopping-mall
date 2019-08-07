@@ -6,7 +6,7 @@ import 'mint-ui/lib/style.css'
 //引入路由
 import router from "./router/router.js"
 //引入vuex
-import store from './store/'
+import store from './store/index.js'
 //引入全局操作的工具
 import './global.js';
 //rem适配
