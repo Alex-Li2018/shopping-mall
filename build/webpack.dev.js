@@ -19,8 +19,9 @@ module.exports = smart(base,{
         compress: true, //启动压缩
         proxy: { 
             '/api': {
-                target: 'http://elm.cangdu.org/', //配置一个代理 访问api都代理到http://elm.cangdu.org/
-                pathRewrite: {'api/': ''} //重写接口 就是我们请求的实际接口
+                target: 'http://elm.cangdu.org', //配置一个代理 访问api都代理到http://elm.cangdu.org/
+                changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+                pathRewrite: {'^/api': ''} //重写接口 就是我们请求的实际接口
             }
         }
     },
