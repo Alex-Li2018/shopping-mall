@@ -16,7 +16,7 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 //封装http请求
 const $Http = {
     //get请求
-    get(url, params) {    
+    get(url, params) {
         return new Promise((resolve, reject) =>{        
             instance.get(url, {            
                 params: params        

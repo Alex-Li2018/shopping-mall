@@ -15,20 +15,14 @@ module.exports = smart(base,{
     devServer: { //开发服务的配置
         port: 8080, //端口
         progress: true, //进度条
-        contentBase: '../client', //找到对应的文件夹开启服务
+        // contentBase: '../client', //找到对应的文件夹开启服务
         compress: true, //启动压缩
         proxy: { 
-            '/v1': {
-                target: 'http://elm.cangdu.org', //配置一个代理 访问api都代理到3000端口
+            '/api': {
+                target: 'http://elm.cangdu.org/', //配置一个代理 访问api都代理到http://elm.cangdu.org/
+                pathRewrite: {'api/': ''} //重写接口 就是我们请求的实际接口
             }
         }
-
-        // proxy: {
-        //     '/api': {
-        //         target: 'http://localhost:3000',
-        //         reWrite: {'/api': ''} //重写这个接口 就是我们请求的实际接口
-        //     }
-        // }
     },
     // 1) 映射源码,会单独生成一个sourcemap文件 出错了会标识当前报错的行列 大 全
     // devtool: 'source-map',

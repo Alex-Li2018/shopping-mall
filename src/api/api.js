@@ -1,5 +1,7 @@
 //预防xss攻击的工具函数
 import { xssDefenseUncode, xssDefenseEncode } from '../xssDefense/xssDefense.js'
+//加密传输用户信息
+import md5 from "js-md5"
 
 //api发送请求
 
@@ -56,6 +58,11 @@ export function searchtarget(params) {
  */
 export function accountLogin(params) {
     let url = `v2/login`;
+    //利用md5对用户名以及密码加密
+    let { username,password } = params
+    params.username = md5(username)
+    params.password = md5(password)
+
     let data = Object.assign({},params);
     return $Http.post(url,data)
         .then(res => {
