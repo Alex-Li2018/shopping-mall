@@ -114,7 +114,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './client/index.html',
+            template: './client/index.ske.html',
             filename: 'index.html'
         }),
         //每次都删除 dist目录 生成新的dist 多个文件传一个数组
